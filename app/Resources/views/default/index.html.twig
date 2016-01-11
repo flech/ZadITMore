@@ -1,0 +1,31 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h2>Basket</h2>
+    {% for basket in basketProds %}
+        <table>
+        <tr>
+            <td>{{basket}}</td>
+        </tr>
+        </table>
+    {% endfor %} 
+    <br/><br/>
+    <a href="{{path('delete_basket')}}"> EMPTY BASKET</a>
+    
+    
+    <h2>Available Products</h2>
+    <form method="post">
+        {% for product in products %}
+            <table>
+            <tr>
+                <td>{{product.name }}</td>
+                <td><input type="radio" name="prod" value="{{product.id}}"></td>
+            </tr>
+            </table>
+        {% endfor %}
+        <input type="submit" value="Dodaj" name="sub" >
+    </form>    
+
+{% endblock %}
+
+
